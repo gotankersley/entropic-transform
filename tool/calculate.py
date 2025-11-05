@@ -981,12 +981,5 @@ def calculate(e):
 		data['bwtsMtfEntropy'] = I(bwtsMtfSeq)
 		data['bwtsMtfRank'] = b2n(symCount, bwtsMtfSeq)
 		
-	if menu.race:
-		perm = lehmer_rank_to_perm(rndRank)
-		raceSeq = race_encode(perm)
-		raceMtfSeq = seq_to_mtf(deltaEncode(raceSeq))
-		#raceMtfSeq = deltaEncode(raceSeq)
-		data['raceSeq'] = raceMtfSeq
-		data['raceEntropy'] = I(raceMtfSeq)		
 	
 	window.showResults(to_js(data))
