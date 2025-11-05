@@ -1,4 +1,4 @@
-from entropic import entropic_rank, entropic_unrank
+from near_entropic import near_entropic_rank, near_entropic_unrank
 from math import log2
 
 	
@@ -13,8 +13,8 @@ TOTAL_SYM_AVAIL = 3
 SEQ_LEN = 3
 print('Small message examples:')
 for r in range(0, TOTAL_SYM_AVAIL**SEQ_LEN):	
-	seq = entropic_unrank(r, TOTAL_SYM_AVAIL, SEQ_LEN)
-	rank = entropic_rank(seq, TOTAL_SYM_AVAIL)
+	seq = near_entropic_unrank(r, TOTAL_SYM_AVAIL, SEQ_LEN)
+	rank = near_entropic_rank(seq, TOTAL_SYM_AVAIL)
 	print (r, seq, rank, I(seq))	
 	assert r == rank
 	
@@ -32,9 +32,9 @@ print('Entropy of Random Message: ', I(msg), '\n')
 #Convert msg into bits
 msgBits = 2191682868323610206074412672256278751534977634292400501756475833529909753323059409647825439983699976059631680102414064582352842549313807925011638423879708831181008655333958010377167
 
-entropicMsg = entropic_unrank(msgBits, TOTAL_SYM_AVAIL, SEQ_LEN + K_SHAPING)
+entropicMsg = near_entropic_unrank(msgBits, TOTAL_SYM_AVAIL, SEQ_LEN + K_SHAPING)
 print ('Unranked entropic msg:', entropicMsg)
 print ('Entropy of msg: ', I(entropicMsg), '\n')
-rank = entropic_rank(entropicMsg, TOTAL_SYM_AVAIL)
+rank = near_entropic_rank(entropicMsg, TOTAL_SYM_AVAIL)
 print ('Rank of sequence: ', rank)
 assert msgBits == rank
