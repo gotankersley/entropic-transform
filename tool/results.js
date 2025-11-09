@@ -16,7 +16,7 @@ window.showResults = function(data) {
 		<td class="entropy">${data.rndEntropy}</td>
 	</tr>`;
 	
-	if (menu.entropic) {
+	if (menu.nearerEntropic) {
 		template += 
 		`<tr>
 			<td>Nearer Entropic</td>
