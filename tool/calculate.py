@@ -960,7 +960,7 @@ def calculate(e):
 	}
 	
 	
-	if menu.entropic:
+	if menu.nearerEntropic:
 		entSeq = entropic_unrank(rndRank, symCount, seqLen + menu.kSetShaping)
 		data['entSeq'] = entSeq	
 		data['entEntropy'] = I(entSeq)
