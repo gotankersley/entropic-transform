@@ -19,7 +19,7 @@ window.showResults = function(data) {
 	if (menu.entropic) {
 		template += 
 		`<tr>
-			<td>Entropic</td>
+			<td>Nearer Entropic</td>
 			<td><div class="seq">${data.entSeq}</div></td>
 			<td><div class="rank">${data.rndRank}</div></td>
 			<td class="entropy">${data.entEntropy}</td>

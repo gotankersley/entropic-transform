@@ -1,7 +1,7 @@
 //Struct MenuProperties
 function MenuProperties() {
 	//Options
-	this.entropic = true;	
+	this.nearerEntropic = true;	
 	this.nearEntropic = true;	
 	this.bwts = true;	
 	this.kSetShaping = 0;    
@@ -16,7 +16,7 @@ export function MenuManager() {
 	
 	//Options
 	var optionsMenu = this.rootMenu.addFolder('Options');			
-	optionsMenu.add(this.properties, 'entropic');		
+	optionsMenu.add(this.properties, 'nearerEntropic').name('nearer entropic');	;		
 	optionsMenu.add(this.properties, 'nearEntropic').name('near entropic');		
 	optionsMenu.add(this.properties, 'bwts');								
 	optionsMenu.add(this.properties, 'kSetShaping').name('k set shaping');				
