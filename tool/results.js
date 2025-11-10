@@ -6,7 +6,7 @@ window.showResults = function(data) {
 	<tr>
 		<th>Type</th>
 		<th>Sequence</th>
-		<th>Bijective Rank</th>
+		<th>Rank</th>
 		<th>Entropy</th>
 	</tr>
 	<tr>
@@ -16,39 +16,50 @@ window.showResults = function(data) {
 		<td class="entropy">${data.rndEntropy}</td>
 	</tr>`;
 	
+	if (menu.nearEntropic) {
+		template += 
+		`<tr>
+			<td>Near Entropic</td>
+			<td><div class="seq">${data.nearEntShapedSeq}</div></td>
+			<td><div class="rank">${data.nearEntRank}</div></td>
+			<td class="entropy">${data.nearEntShapedEntropy}</td>
+		</tr>`;
+	}
+	
 	if (menu.nearerEntropic) {
 		template += 
 		`<tr>
 			<td>Nearer Entropic</td>
-			<td><div class="seq">${data.entSeq}</div></td>
-			<td><div class="rank">${data.rndRank}</div></td>
-			<td class="entropy">${data.entEntropy}</td>
+			<td><div class="seq">${data.entShapedSeq}</div></td>
+			<td><div class="rank">${data.entRank}</div></td>
+			<td class="entropy">${data.entShapedEntropy}</td>
 		</tr>`;
-	
 	}
 	
 	if (menu.nearEntropic) {
 		template += 
 		`<tr>
-			<td>Near Entropic</td>
-			<td><div class="seq">${data.nearSeq}</div></td>
+			<td>Near Entropic  &nbsp;&nbsp;&nbsp;| Base-A</td>
+			<td><div class="seq">${data.nearSeqBaseA}</div></td>
 			<td><div class="rank">${data.rndRank}</div></td>
-			<td class="entropy">${data.nearEntropy}</td>
+			<td class="entropy">${data.nearEntropyBaseA}</td>
 		</tr>`;
 	}
-	
+		
+	if (menu.nearerEntropic) {
+		template += 
+		`<tr>
+			<td>Nearer Entropic | Base-A</td>
+			<td><div class="seq">${data.entSeqBaseA}</div></td>
+			<td><div class="rank">${data.rndRank}</div></td>
+			<td class="entropy">${data.entEntropyBaseA}</td>
+		</tr>`;	
+	}
+
 	if (menu.bwts) {
 		template += 
 		`<tr>
 			<td>BWTS</td>
-			<td><div class="seq">${data.bwtsSeq}</div></td>
-			<td><div class="rank">${data.bwtsRank}</div></td>
-			<td class="entropy">${data.bwtsEntropy}</td>
-		</tr>
-		
-		
-		<tr>
-			<td>BWTS + MTF </td>
 			<td><div class="seq">${data.bwtsMtfSeq}</div></td>
 			<td><div class="rank">${data.bwtsMtfRank}</div></td>
 			<td class="entropy">${data.bwtsMtfEntropy}</td>

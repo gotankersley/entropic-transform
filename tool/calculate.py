@@ -961,21 +961,29 @@ def calculate(e):
 	
 	
 	if menu.nearerEntropic:
-		entSeq = entropic_unrank(rndRank, symCount, seqLen + menu.kSetShaping)
-		data['entSeq'] = entSeq	
-		data['entEntropy'] = I(entSeq)
+		entRank = entropic_rank(rndSeq, symCount)
+		entShapedSeq = entropic_unrank(entRank, symCount, seqLen + menu.kSetShaping)		
+		data['entShapedSeq'] = entShapedSeq
+		data['entRank'] = entRank
+		data['entShapedEntropy'] = I(entShapedSeq)
+		
+		entSeqBaseA = entropic_unrank(rndRank, symCount, seqLen + menu.kSetShaping)
+		data['entSeqBaseA'] = entSeqBaseA	
+		data['entEntropyBaseA'] = I(entSeqBaseA)
 		
 	if menu.nearEntropic:
-		nearSeq = near_entropic_unrank(rndRank, symCount, seqLen + menu.kSetShaping)
-		data['nearSeq'] = nearSeq		
-		data['nearEntropy'] = I(nearSeq)
+		nearEntRank = near_entropic_rank(rndSeq, symCount)
+		nearEntShapedSeq = near_entropic_unrank(nearEntRank, symCount, seqLen + menu.kSetShaping)		
+		data['nearEntShapedSeq'] = nearEntShapedSeq
+		data['nearEntRank'] = nearEntRank
+		data['nearEntShapedEntropy'] = I(nearEntShapedSeq)
+		
+		nearSeqBaseA = near_entropic_unrank(rndRank, symCount, seqLen + menu.kSetShaping)
+		data['nearSeqBaseA'] = nearSeqBaseA		
+		data['nearEntropyBaseA'] = I(nearSeqBaseA)
 		
 	if menu.bwts:
-		bwtsSeq = bwts_transform(rndRank, symCount, seqLen)
-		data['bwtsSeq'] = bwtsSeq
-		data['bwtsEntropy'] = I(bwtsSeq)
-		data['bwtsRank'] = b2n(symCount, bwtsSeq)
-		
+		bwtsSeq = bwts_transform(rndRank, symCount, seqLen)		
 		bwtsMtfSeq = seq_to_mtf(bwtsSeq)
 		data['bwtsMtfSeq'] = bwtsMtfSeq
 		data['bwtsMtfEntropy'] = I(bwtsMtfSeq)

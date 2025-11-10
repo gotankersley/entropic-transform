@@ -4,7 +4,7 @@ function MenuProperties() {
 	this.nearerEntropic = true;	
 	this.nearEntropic = true;	
 	this.bwts = true;	
-	this.kSetShaping = 0;    
+	this.kSetShaping = 1;    
 }
 //End struct MenuProperties
 
