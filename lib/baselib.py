@@ -19,3 +19,10 @@ def n2b(n, b):
 		digits.append(int(n % b))
 		n //= b
 	return digits[::-1]
+	
+#https://sochima.me/set-shaping-theory
+# compute the information content of a given string
+def I(S):
+	N = len(S)
+	prob = [S.count(c)/N for c in S] # probability of each symbol in the string
+	return round(-sum([log2(p) for p in prob]), 2)

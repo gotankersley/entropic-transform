@@ -332,7 +332,7 @@ def seq_to_set_part(symSeq, symCount):
 	#Sort in canonical order
 	return sorted(setPart, key=cmp_to_key(setPartCompare))	
 
-
+@lru_cache(None)
 def stirling2MaxLessThan(n, k, m):	
 	"""Integer-safe computation of S_{<=m}(n,k) = number of partitions of n labeled items
 	into k blocks, each of size <= m."""

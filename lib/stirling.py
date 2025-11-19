@@ -134,11 +134,12 @@ def set_part_to_rgf(setPart):#, n=None):
 			rgf[idx] = label
 	return rgf
 
-stirCache = {}
+#stirCache = {}
+@lru_cache(None)
 def stirling2MaxLessThan(n, k, m):
-	global stirCache
-	stirKey = str(n) + ',' + str(k) + ','+ str(m)
-	if stirKey in stirCache: return stirCache[stirKey]
+	#global stirCache
+	#stirKey = str(n) + ',' + str(k) + ','+ str(m)
+	#if stirKey in stirCache: return stirCache[stirKey]
 	"""Integer-safe computation of S_{<=m}(n,k) = number of partitions of n labeled items
 	into k blocks, each of size <= m."""
 	if k == 0:
@@ -154,7 +155,7 @@ def stirling2MaxLessThan(n, k, m):
 			for j in range(1, min(m, ni)+1):
 				total += comb(ni-1, j-1) * S[ni-j][ki-1]
 			S[ni][ki] = total
-	stirCache[stirKey] = S[n][k]
+	#stirCache[stirKey] = S[n][k]
 	return S[n][k]
 		
 	
