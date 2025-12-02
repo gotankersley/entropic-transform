@@ -3,3 +3,6 @@ See <a href="https://gotankersley.github.io/sloi/2025/11/01/entropic-transforms.
 
 <b>Note:</b> This method is only an approximation of entropic order, and not exact.
 For example, compare [0,0,0,0,0,0,0,0,1,2] and [0,0,0,0,0,1,1,1,1,1].
+
+## OPTIMIZED VERSION
+See this repo for a more optimized solution <a href="https://github.com/gotankersley/decimate" target="_blank">https://github.com/gotankersley/decimate</a> (C/C++) <br>
