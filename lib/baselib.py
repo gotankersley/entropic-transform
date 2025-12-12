@@ -1,3 +1,4 @@
+from math import log2
 def lpad(digits, totalSize):
 	itCount = totalSize-len(digits)
 	for k in range(itCount):
@@ -26,3 +27,10 @@ def I(S):
 	N = len(S)
 	prob = [S.count(c)/N for c in S] # probability of each symbol in the string
 	return round(-sum([log2(p) for p in prob]), 2)
+	
+def I2(reps):
+	total = 0
+	seqLen = sum(reps)
+	for rep in reps:		
+		total += (rep * log2(rep/seqLen))
+	return -total
